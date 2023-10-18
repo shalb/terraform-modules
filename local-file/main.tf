@@ -16,5 +16,5 @@ output "path" {
 data "aws_s3_bucket_object" "object_info" {
   count    = var.source_s3 == null ? 0 : 1
   bucket = var.source_s3.bucket
-  key = var.ource_s3.key
+  key = var.source_s3.key
 }
