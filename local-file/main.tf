@@ -13,7 +13,7 @@ output "path" {
   value = var.filename
 }
 
-data "aws_s3_bucket_object" "object_info" {
+data "aws_s3_object" "object_info" {
   count    = var.source_s3 == null ? 0 : 1
   bucket = var.source_s3.bucket
   key = var.source_s3.key
