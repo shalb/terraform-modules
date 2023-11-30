@@ -1,5 +1,5 @@
 resource "local_file" "main" {
-  content  = var.source_s3 == null ? var.content : data.aws_s3_bucket_object.object_info.0.body
+  content  = var.source_s3 == null ? var.base64decode ? base64decode(var.content): var.content : data.aws_s3_bucket_object.object_info.0.body
   filename = var.filename
   file_permission = var.file_permission
   directory_permission = var.directory_permission
