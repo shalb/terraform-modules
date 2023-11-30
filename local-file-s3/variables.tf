@@ -1,13 +1,9 @@
-variable content {
-  type = string
-  default = null
-  description = "Content to store in the file, expected to be a UTF-8 encoded string. Conflicts with source_s3"
-}
-
-variable base64decode {
-  type = bool
-  default = false
-  description = "Uset only with content. If true, content expected as base64encoded string. Will be decoded before saving"
+variable source_s3 {
+  type = object({
+    bucket = string
+    key = string
+  })
+  description = "Path to s3 file to use as source for the one we are creating. Conflicts with content"
 }
 
 variable file_permission {
